@@ -9,16 +9,44 @@ let minutesText = document.getElementById("minutesText");
 let secondsText = document.getElementById("secondsText");
 let milliText = document.getElementById("milliText");
 
-// window.onload = function() {
-//     minutesText.innerHTML="00";
-//     secondsText.innerHTML="00";
-//     milliText.innerHTML="00";
-// }
-
-
-start.addEventListener("click", function() {
+// Set Timer To Zero On Load
+window.onload = function() {
     minutesText.innerHTML="00";
     secondsText.innerHTML="00";
-    milliText.innerHTML="01";
+    milliText.innerHTML="00";
+}
+
+// Timer Begins When "Start" Is Clicked
+start.addEventListener("click", function() {
+    let timer = window.setInterval(function(){
+        milli += 01;
+        milliText.innerHTML = milli;
+        if (seconds==59 && milli==99) {
+            seconds = 00;
+            minutes+=1;
+            minutesText.innerHTML = minutes;
+        }
+        if (milli==99) {
+            milli = 00;
+            seconds+=1;
+            secondsText.innerHTML = seconds;
+        }
+    },10) 
+
+// Timer Stops When "Stop" Is Clicked
+stop.addEventListener("click", function(){
+        clearInterval(timer);
+    });
+    // Set interval that adds a number to milliseconds for each millisecond
+    // After each millisecond, the innerHTML is updated
+    // Create function that adds 0 to front if number milliseconds is < 10
+    // When it reaches 99, a second is added and the loop starts over
+})
+
+// Set Timer To Zero When "Reset" Is Clicked
+reset.addEventListener("click", function() {
+    minutesText.innerHTML="00";
+    secondsText.innerHTML="00";
+    milliText.innerHTML="00";
 })
 
