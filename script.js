@@ -21,7 +21,7 @@ start.addEventListener("click", function() {
     let timer = window.setInterval(function(){
         milli += 01;
         milliText.innerHTML = milli;
-        if (seconds==59 && milli==99) {
+        if (seconds==10 && milli==99) {
             seconds = 00;
             minutes+=1;
             minutesText.innerHTML = minutes;
@@ -37,10 +37,6 @@ start.addEventListener("click", function() {
 stop.addEventListener("click", function(){
         clearInterval(timer);
     });
-    // Set interval that adds a number to milliseconds for each millisecond
-    // After each millisecond, the innerHTML is updated
-    // Create function that adds 0 to front if number milliseconds is < 10
-    // When it reaches 99, a second is added and the loop starts over
 })
 
 // Set Timer To Zero When "Reset" Is Clicked
