@@ -1,7 +1,18 @@
-html {
+body {
     background-color: black;
 }
 
-p {
+.content {
+    margin: 30px auto;
+    padding: 30px;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    background-color: gray;
     color: white;
+}
+
+#timer {
+    font-size: 45px;
+    letter-spacing: 2px;
 }
